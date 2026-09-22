@@ -1,0 +1,18 @@
+{
+  "name": "job-verifier",
+  "version": "1.0.0",
+  "description": "Cross-verifies a job posting's company, position, recruiter, and application details against the employer's official web presence.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

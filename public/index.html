@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Verifier</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main id="home" class="home">
+  <h1 class="wordmark">Job Verifier</h1>
+  <p class="tagline">Check a job posting's facts against the company before you apply.</p>
+
+  <form id="verify-form" class="verify-form" autocomplete="off">
+    <div class="field-row">
+      <label for="companyName">Company name</label>
+      <input type="text" id="companyName" name="companyName" placeholder="Acme Corporation" required>
+    </div>
+    <div class="field-row">
+      <label for="companyWebsite">Company website</label>
+      <input type="text" id="companyWebsite" name="companyWebsite" placeholder="acme.com" required>
+    </div>
+
+    <button type="button" id="toggle-more" class="toggle-more">+ Add job posting details (optional, improves results)</button>
+
+    <div id="more-fields" class="more-fields hidden">
+      <div class="field-row">
+        <label for="jobTitle">Job title</label>
+        <input type="text" id="jobTitle" name="jobTitle" placeholder="Senior Data Analyst">
+      </div>
+      <div class="field-row">
+        <label for="jobLocation">Location</label>
+        <input type="text" id="jobLocation" name="jobLocation" placeholder="Remote / Austin, TX">
+      </div>
+      <div class="field-row">
+        <label for="requisitionId">Requisition / job ID</label>
+        <input type="text" id="requisitionId" name="requisitionId" placeholder="REQ-2026-1130">
+      </div>
+      <div class="field-row">
+        <label for="recruiterEmail">Recruiter email</label>
+        <input type="email" id="recruiterEmail" name="recruiterEmail" placeholder="jane.doe@acme.com">
+      </div>
+      <div class="field-row">
+        <label for="recruiterPhone">Recruiter phone</label>
+        <input type="tel" id="recruiterPhone" name="recruiterPhone" placeholder="(512) 555-0134">
+      </div>
+      <div class="field-row">
+        <label for="jobPostingUrl">Job posting URL</label>
+        <input type="text" id="jobPostingUrl" name="jobPostingUrl" placeholder="https://jobs.lever.co/acme/...">
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="verify-btn">Verify</button>
+    </div>
+  </form>
+
+  <p id="form-error" class="form-error hidden"></p>
+</main>
+
+<main id="report-view" class="report-view hidden">
+  <div class="report-topbar">
+    <button id="new-search" class="new-search">&larr; New search</button>
+  </div>
+  <div id="report-content" class="report-content"></div>
+</main>
+
+<template id="loading-template">
+  <div class="loading">
+    <div class="spinner"></div>
+    <p>Checking company records, live site status, and posting details&hellip;</p>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
